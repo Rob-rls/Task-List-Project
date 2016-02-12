@@ -1,7 +1,4 @@
 test line a
 test line b
 test line c
-test line 4
-test line [4]
-test line {4}
-teat line \n
+test line d
