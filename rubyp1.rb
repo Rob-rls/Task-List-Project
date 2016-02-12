@@ -14,7 +14,11 @@ end
 def option_mod
 end
   
-def option_view
+def option_view #this function has become obsolete as the code works best in the case loop option for view
+	puts "Your current items to do are as follows: "
+	to_do_list.each do |item|
+	  puts "#{to_do_list.index(item)}- #{item}"
+	end
 end
   
 def option_exit
@@ -51,7 +55,11 @@ until quitx == 1
 	
 	when "modify" then puts "modify"
     
-	when "view" then puts "view"
+	when "view" 
+      puts "Your current items to do are as follows: "
+	  to_do_list.each do |item|
+	    puts "#{to_do_list.index(item) + 1}: #{item}"
+	  end
     
 	when "delete" then puts "delete"
 	
