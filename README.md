@@ -4,8 +4,8 @@ The idea is to create a task list that stores a list that can be saved after the
 
 The project is now complete!  The program works as defined above.  
 
-Some ideas to update as I learn more Ruby:
-1. Make it web-based!  Command line only programs are so 1980's... :) \n
-2. Use Gems to give it a GUI \n
-3. Allow the user to retreive different list ie, "Shopping List" and "Holiday Checklist" etc.. \n
+Some ideas to update as I learn more Ruby:  
+1. Make it web-based!  Command line only programs are so 1980's... :)  
+2. Use Gems to give it a GUI  
+3. Allow the user to retreive different list ie, "Shopping List" and "Holiday Checklist" etc..  
 
