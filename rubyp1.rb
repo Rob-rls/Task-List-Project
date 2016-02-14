@@ -1,45 +1,62 @@
 #This program should be a simple to do list
-#choices should be add, delete, view, modify, exit
+#the user can add, delete, view, modify, and exit
 #Create an array to store to do list
 #The array should be stored in an external file that is recalled when run again
 #the program requries a file named listdata.txt to be stored in the same directory before it can be run
+
+def select_item #this gets the user input when a specific item in the list needs to be selected
+  valid_option = false
+  while valid_option == false
+    item_num = Integer(gets) rescue false
+    if item_num == false
+	  puts "Please enter a valid option."
+  	elsif item_num > 0 and $to_do_list[item_num - 1] != nil
+      valid_option = true
+	else
+	  puts "Please enter a valid option."
+	end
+  end
+  return item_num - 1
+end
   
-def option_add (menu_opt)
+def option_add (menu_opt) #add a new item to the list
   puts "What would like to #{menu_opt}?"
   new_item = $stdin.gets
-  end
+end
   
-def option_del #need to add check to make sure option is valid
+def option_del  #delete an item
   option_view
   puts "Which item number would you like to delete? "
-  del_item = $stdin.gets.chomp.to_i
-  $to_do_list.slice!(del_item - 1)
+  del_item = select_item
+  $to_do_list.slice!(del_item)
 end
   
-def option_mod
+def option_mod #change an item on the list
   option_view
   puts "Which item number would you like to modify? "
-  mod_item_num = $stdin.gets.chomp.to_i
+  mod_item_num = select_item
   add_item = option_add("modify it to")
-  $to_do_list[mod_item_num - 1] = add_item
-  
+  $to_do_list[mod_item_num] = add_item
 end
   
-def option_view
-	puts "Your current items to do are as follows: "
+def option_view #displays each item in the list
+	puts "Your current items to do are as follows:\n\n"
+	puts "*" * 15
 	$to_do_list.each do |item|
-	  puts "#{$to_do_list.index(item) + 1}- #{item}"
+	  puts "#{$to_do_list.index(item) + 1} - #{item}"
 	end
+	puts "*" * 15, "\n"
 end
 
 #opens the previous to do list and saves it to an array
+#creates the to do list as a global vriable in order for it to be used in methods
 $to_do_list = Array.new
 file_name = "listdata.txt"
 read_file = open(file_name)
 $to_do_list = File.readlines(file_name)
 read_file.close
 
-#get the option form the user; the below menu loops until the exit optin is selected
+#get the option form the user; the below menu loops until the exit option is selected
 quitx = 0
 until quitx == 1
   
