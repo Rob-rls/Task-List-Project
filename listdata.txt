@@ -2,3 +2,4 @@ test line a
 test line b
 test line c
 test line d
+test line e
